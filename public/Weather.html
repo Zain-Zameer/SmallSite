@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search bar - Zen Zen</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<style>
+    body{
+        background-color: rgb(31, 30, 30);
+        padding: 0;
+        margin: 0;
+        overflow-x: hidden;
+    }
+    h1{
+        font-family: "Poppins", sans-serif;
+        font-weight: 600;
+        font-size: 72px;
+        font-style: normal;
+        color: rgb(160, 47, 113);
+        margin: 2px;
+    }
+    p{
+        color: rgb(139, 137, 137);
+        font-family: "Poppins", sans-serif;
+        font-weight: 300;
+        font-size: 20px;
+        margin: 3px; 
+        letter-spacing: 12px;
+        font-style: normal;
+    }
+    .Heading{
+        padding: 63px;
+        text-align: center;
+    }
+    input{
+        background: transparent;
+        flex: 1;
+        height: 50px;
+        border: 0;
+        outline: 0;
+        font-size: 18px;
+    }
+    .Main{
+        width: 600px;
+        background-color: #fff;
+        margin: 75px auto 0;
+        border-radius: 5px;
+    }
+    .result ul{
+        border-top: 1px solid #999;
+        padding: 15px 10px;
+    }
+    .result{
+        margin: 0;
+        padding: 0;
+        max-height: 300px;
+    }
+    .result ul li{
+        font-family: "Poppins", sans-serif;
+        font-weight: 410;
+        list-style: none;
+        border-radius: 3px;
+        padding: 15px 10px;
+        cursor: pointer;
+
+    }
+    .result ul li:hover{
+        background-color: rgb(226, 223, 223);
+        border-radius: 20px;
+    }
+    .searchMain{
+        align-items: center;
+        display: flex;
+        padding: 10px 20px;
+    }
+    .show{
+        margin: 0;
+        padding: 0;
+    }
+    .show ul{
+        border-left: 4px solid #4a79f7;
+        border-radius: 0px 27px 26px 0px;
+        height: 30px;
+        background-color: #efefef;
+    }
+    .show ul li{
+        font-family: "Poppins", sans-serif;
+        font-weight: 300;
+        font-size: 17px;
+        list-style: none;
+        position: relative;
+        left: -25px;
+    }
+    .Header{
+        width: 100vw;
+        background-color: #363535;
+        border: 2px solid #363535;
+    }
+    .Header nav ul{
+        text-align: right;
+
+    }
+    .Header nav ul li{
+        padding: 53px;
+        display: inline;
+        list-style: none;
+    }
+    .Header nav ul li a{
+        font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;   
+        text-decoration: none;
+        color: white;
+    }
+    .iconsNav{
+        width: 23px;
+    position: absolute;
+    padding: 0px 9px;
+    }
+    #microsoft{
+        width: 56px;
+    position: absolute; 
+    }
+    h3{
+        font-family: "Poppins", sans-serif;
+        font-weight: 500;
+        font-style: normal;  
+        color: white;
+        position:absolute;
+        left: 70px;
+        font-size: 17px;
+    }
+    .Footer{
+        height: 80px;
+        text-align: center;
+        background-color: #363535;
+        border: 2px solid #363535;
+        
+    }
+    .Footer nav ul li{
+        cursor: pointer;
+        color: white;
+        list-style: none;
+        display: inline-block;
+        padding: 4px;
+        font-family: "Poppins", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+    }
+    .Footer nav ul{
+        padding: 10px 20px;
+        display: inline;
+    }
+    #copy{
+            text-align: center;
+    padding: 0px 543px;
+    font-size: 14px;
+    }
+    .Footer nav ul li:hover{
+        text-decoration: underline white;
+    }
+    .AreaMain{
+        height: 80vh;
+    }
+    #searchButtonIMG{
+        width: 41px;
+
+    }
+    #searchButton{
+        background: transparent;
+    border: none;
+    cursor: pointer;
+    }
+    #searchButton:hover{
+        background-color: #e7e7e7;
+    }
+</style>
+<body>
+    <div class="Header">
+        <img src="/microsoft.png" alt="Image of microsoft" id="microsoft">
+        <h3>Microsoft Zen Zen</h3>
+        <nav>
+            <ul>
+                <li><a href="../public/index.html">Home</a><img src="/home.png" alt="" class="iconsNav"></li>  
+                <li><a href="../public/Search.html">Find</a><img src="/search.png" alt="" class="iconsNav"></li>
+                <li><a href="#">Weather Updates</a><img src="/cloudy.png" alt="" class="iconsNav"></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="Heading">
+        <h1 id="title">Zen Zen</h1>
+        <p id="para">Search Weather</p>
+   </div>   
+
+   <!-- Heres the main work of ui -->
+   <div class="AreaMain">
+    <div class="Main">
+        <div class="searchMain">
+            <input type="search" name="searchBar" id="searchBar" autocomplete="off" placeholder="Search City">
+            <button id="searchButton"><img src="/search2.png" alt=""  id="searchButtonIMG"></button>
+        </div>
+
+        <div class="result">
+            <ul id="resultList">
+
+            </ul>
+        </div>
+    </div> 
+   </div>
+
+
+    <footer>
+        <div class="Footer">
+            <nav>
+                <ul>
+                    <li>Our Site</li>
+                    <li>Legal Documents</li>
+                    <li>Possibility</li>
+                    <li>Meta AI</li>
+                    <li>Vacancies</li>
+                    <li>Jobs @zen-zen</li>
+                    <li>Seminars</li>
+                    <li>Threats</li>
+                    <li>Groll</li>
+                    <li>Haw Haw</li>
+                </ul>
+            </nav>
+            <h3 id="copy">&copy; 2024 Zen Zen Technology. All rights reserved.</h3>
+    
+        </div>
+    </footer>
+
+
+    <script>
+        
+
+
+const apiKey  = '323cd9c21a59e193f60101cb2c5a24ab';
+const apiUrl = 'https://api.openweathermap.org/data/2.5/weather?&units=metric&q=';
+
+let temperature = "";
+let humidity = "";
+let windSpeed = "";
+
+async function checkWhether(city){
+    
+    
+    try{      
+    const response = await fetch(apiUrl+ city + `&appid=${apiKey}`);
+    var data = await response.json();
+    console.log(data);
+
+    temperature = Math.round(data.main.temp);
+    humidity = data.main.humidity;
+    windSpeed = data.wind.speed;
+    const items = [temperature,humidity,windSpeed];
+    const ulElement = document.getElementById('resultList');
+    
+
+
+items.forEach(item=>{
+    const liElement = document.createElement('li');
+    if (item === temperature) {
+        liElement.textContent = `Temperature: ${item}°C`;
+    } 
+    else if (item === humidity) {
+        liElement.textContent = `Humidity: ${item}%`;
+    } 
+    else if (item === windSpeed) {
+        liElement.textContent = `Wind Speed: ${item}km/h`;
+    } 
+    else{
+        liElement.textContent = item;
+    }
+    ulElement.appendChild(liElement);
+})
+
+}
+
+    catch(error){
+        
+        ulElement = document.getElementById('resultList');
+        ulElement.innerHTML = "";
+        const liElement = document.createElement('li');
+        liElement.textContent = `City not found.`;
+        ulElement.appendChild(liElement);
+    }
+}
+
+const resultsBox = document.querySelector(".result");
+const inputBox = document.getElementById("searchBar");
+const searchBTN = document.getElementById("searchButton");
+
+searchBTN.addEventListener("click",()=>{
+    ulElement = document.getElementById('resultList');
+    ulElement.innerHTML="";
+    city = inputBox.value;
+    checkWhether(city);  
+})
+
+inputBox.onkeyup = function(){
+    input = inputBox.value;
+    if(!inputBox.length){
+        ulElement = document.getElementById('resultList');
+        ulElement.innerHTML="";
+    }
+}
+
+
+
+
+
+// Have to edit it
+
+
+function displayResult(databaseResult){
+     
+    const content2 = databaseResult.map((list)=>{
+        const index = list.toLowerCase().indexOf(inputBox.value.toLowerCase());
+        const beforeMatch = list.substring(0, index);
+        const match = list.substring(index, index + inputBox.value.length);
+        const afterMatch = list.substring(index + inputBox.value.length);
+        const highlightedItem = beforeMatch + "<strong>" + match + "</strong>" + afterMatch;
+        return "<li onclick='selectInput(this)'>" + highlightedItem + "</li>";
+    })  
+     
+    // const combinedContent = content.concat(content2);
+    
+    resultsBox.innerHTML = "<ul>" + content2.join('') + "</ul>";    
+
+}
+
+    
+       
+        
+
+    </script>
+</body>
+</html>

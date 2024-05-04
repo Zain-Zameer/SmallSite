@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search bar - Zen Zen</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<style>
+    body{
+        background-color: rgb(31, 30, 30);
+        padding: 0;
+        margin: 0;
+        overflow-x: hidden;
+    }
+    h1{
+        font-family: "Poppins", sans-serif;
+        font-weight: 600;
+        font-size: 72px;
+        font-style: normal;
+        color: rgb(160, 47, 113);
+        margin: 2px;
+    }
+    p{
+        color: rgb(139, 137, 137);
+        font-family: "Poppins", sans-serif;
+        font-weight: 300;
+        font-size: 20px;
+        margin: 3px; 
+        letter-spacing: 12px;
+        font-style: normal;
+    }
+    .Heading{
+        padding: 63px;
+        text-align: center;
+    }
+    input{
+        background: transparent;
+        flex: 1;
+        height: 50px;
+        border: 0;
+        outline: 0;
+        font-size: 18px;
+    }
+    .Main{
+        width: 600px;
+        background-color: #fff;
+        margin: 75px auto 0;
+        border-radius: 5px;
+    }
+    .result ul{
+        border-top: 1px solid #999;
+        padding: 15px 10px;
+    }
+    .result{
+        overflow-y: scroll;
+        margin: 0;
+        padding: 0;
+        max-height: 300px;
+    }
+    .result ul li{
+        font-family: "Poppins", sans-serif;
+        font-weight: 410;
+        list-style: none;
+        border-radius: 3px;
+        padding: 15px 10px;
+        cursor: pointer;
+
+    }
+    .result ul li:hover{
+        background-color: rgb(226, 223, 223);
+        border-radius: 20px;
+    }
+    .searchMain{
+        align-items: center;
+        display: flex;
+        padding: 10px 20px;
+    }
+    .show{
+        margin: 0;
+        padding: 0;
+    }
+    .show ul{
+        border-left: 4px solid #4a79f7;
+        border-radius: 0px 27px 26px 0px;
+        height: 30px;
+        background-color: #efefef;
+    }
+    .show ul li{
+        font-family: "Poppins", sans-serif;
+        font-weight: 300;
+        font-size: 17px;
+        list-style: none;
+        position: relative;
+        left: -25px;
+    }
+    .Header{
+        width: 100vw;
+        background-color: #363535;
+        border: 2px solid #363535;
+    }
+    .Header nav ul{
+        text-align: right;
+
+    }
+    .Header nav ul li{
+        padding: 53px;
+        display: inline;
+        list-style: none;
+    }
+    .Header nav ul li a{
+        font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;   
+        text-decoration: none;
+        color: white;
+    }
+    .iconsNav{
+        width: 23px;
+    position: absolute;
+    padding: 0px 9px;
+    }
+    #microsoft{
+        width: 56px;
+    position: absolute; 
+    }
+    h3{
+        font-family: "Poppins", sans-serif;
+        font-weight: 500;
+        font-style: normal;  
+        color: white;
+        position:absolute;
+        left: 70px;
+        font-size: 17px;
+    }
+    .Footer{
+        height: 80px;
+        text-align: center;
+        background-color: #363535;
+        border: 2px solid #363535;
+        
+    }
+    .Footer nav ul li{
+        cursor: pointer;
+        color: white;
+        list-style: none;
+        display: inline-block;
+        padding: 4px;
+        font-family: "Poppins", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+    }
+    .Footer nav ul{
+        padding: 10px 20px;
+        display: inline;
+    }
+    #copy{
+            text-align: center;
+    padding: 0px 543px;
+    font-size: 14px;
+    }
+    .Footer nav ul li:hover{
+        text-decoration: underline white;
+    }
+    .AreaMain{
+        height: 80vh;
+    }
+</style>
+<body>
+    <div class="Header">
+        <img src="/microsoft.png" alt="Image of microsoft" id="microsoft">
+        <h3>Microsoft Zen Zen</h3>
+        <nav>
+            <ul>
+                <li><a href="../public/index.html">Home</a><img src="/home.png" alt="" class="iconsNav"></li>  
+                <li><a href="#">Find</a><img src="/search.png" alt="" class="iconsNav"></li>
+                <li><a href="../public/Weather.html">Weather Updates</a><img src="/cloudy.png" alt="" class="iconsNav"></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="Heading">
+        <h1 id="title">Zen Zen</h1>
+        <p id="para">Search Bar</p>
+   </div>   
+
+   <div class="AreaMain">
+    <div class="Main">
+        <div class="searchMain">
+            <input type="search" name="searchBar" id="searchBar" autocomplete="off" placeholder="Search">
+            
+        </div>
+        <div class="show">
+            
+        </div>
+
+        <div class="result">
+            
+        </div>
+    </div> 
+   </div>
+
+    <footer>
+        <div class="Footer">
+            <nav>
+                <ul>
+                    <li>Our Site</li>
+                    <li>Legal Documents</li>
+                    <li>Possibility</li>
+                    <li>Meta AI</li>
+                    <li>Vacancies</li>
+                    <li>Jobs @zen-zen</li>
+                    <li>Seminars</li>
+                    <li>Threats</li>
+                    <li>Groll</li>
+                    <li>Haw Haw</li>
+                </ul>
+            </nav>
+            <h3 id="copy">&copy; 2024 Zen Zen Technology. All rights reserved.</h3>
+    
+        </div>
+    </footer>
+
+
+    <!-- <script src="./script.js"></script> -->
+    <script>
+        
+
+// SHowing data from an array list 
+// let array = [
+//     "Hello World",
+//     "Hello World in java",
+//     "Hello World in C++",
+//     "How to tie a tie?",
+//     "Best Italian restaurants near me.",
+//     "Weather forecast for tomorrow.",
+//     "How to learn Spanish fast?",
+//     "Symptoms of the flu.",
+//     "How to cook chicken breast?",
+//     "How to start a small business?",
+//     "What is the capital of France?",
+//     "Best books of 2023.",
+//     "DIY home improvement ideas.",
+//     "How to lose weight quickly?",
+//     "Latest iPhone reviews.",
+//     "What is climate change?",
+//     "Top vacation spots in Europe.",
+//     "How to grow tomatoes?",
+//     "How to write a resume?",
+//     "How to invest in stocks?",
+//     "How to make sushi?",
+//     "Is coffee bad for you?",
+//     "Best movies of all time.",
+//     "How to meditate for beginners?",
+//     "What is Bitcoin?",
+//     "How to make a website?",
+//     "What is the meaning of life?",
+//     "How to overcome anxiety?"
+// ];
+
+const resultsBox = document.querySelector(".result");
+const showBox = document.querySelector(".show");
+const inputBox = document.getElementById("searchBar");
+
+databaseResult = []
+
+// fetch('/api/history')
+//         .then(response =>response.json())
+//         .then(history =>{
+//             history.forEach(element => {
+//                 databaseResult.push(element);
+//             });
+//         });
+
+inputBox.onkeyup = function(){
+    let results = [];
+    let input = inputBox.value;
+
+    fetch(`/api/history?search=${input}`)
+        .then(response =>response.json())
+        .then(history =>{
+            databaseResult.length = 0;
+            history.forEach(element => {
+                databaseResult.push(element);
+            });
+    });
+
+    showData([input]);
+    // if(input.length){
+        // resultDB = databaseResult.filter((keyword)=>{
+        //     return keyword.toLowerCase().includes(input.toLowerCase());
+        // });
+        // result = array.filter((keyword)=>{
+        //     return keyword.toLowerCase().includes(input.toLowerCase());
+        // });
+    // }
+    
+    displayResult(databaseResult);
+    if(!input.length){
+        resultsBox.innerHTML = "";
+        showBox.innerHTML = "";
+        
+    }
+}
+
+function displayResult(databaseResult){
+    // const content = result.map((list)=>{
+    //     const index = list.toLowerCase().indexOf(inputBox.value.toLowerCase());
+    //     const beforeMatch = list.substring(0, index);
+    //     const match = list.substring(index, index + inputBox.value.length);
+    //     const afterMatch = list.substring(index + inputBox.value.length);
+    //     const highlightedItem = beforeMatch + "<strong>" + match + "</strong>" + afterMatch;
+    //     return "<li onclick='selectInput(this)'>" + highlightedItem + "</li>";
+    // })  
+    const content2 = databaseResult.map((list)=>{
+        const index = list.toLowerCase().indexOf(inputBox.value.toLowerCase());
+        const beforeMatch = list.substring(0, index);
+        const match = list.substring(index, index + inputBox.value.length);
+        const afterMatch = list.substring(index + inputBox.value.length);
+        const highlightedItem = beforeMatch + "<strong>" + match + "</strong>" + afterMatch;
+        return "<li onclick='selectInput(this)'>" + highlightedItem + "</li>";
+    })  
+     
+    // const combinedContent = content.concat(content2);
+    
+    resultsBox.innerHTML = "<ul>" + content2.join('') + "</ul>";    
+
+}
+
+function showData(input){
+    const content = input.map((input)=>{
+        return "<li>"+input+"  <i style =color:grey >- Zen Zen Search</i>"+"</li>";
+    })
+    showBox.innerHTML = "<ul>" + content.join('') + "</ul>";
+}
+
+function selectInput(list){
+    inputBox.value = list.textContent;
+    resultsBox.innerHTML = "";
+    showBox.innerHTML = "";
+}
+    
+       
+        
+
+    </script>
+</body>
+</html>
