@@ -12,11 +12,13 @@
     body{
         margin: 0;
         padding: 0;
-        background-image: url("/nasa.jpg");
-        background-size: cover; 
-    background-repeat: no-repeat; 
+         /* background-image: url("/nasa.jpg"); */
+        /*background-size: cover; 
+    background-repeat: no-repeat;  */
+    background-color: #1b1f29;
     background-position: center;
     overflow-x: hidden;
+    overflow-y: hidden;
     }
     .Header{
         width: 100vw;
@@ -64,7 +66,8 @@
     .Main{
         width: 100vw;
             padding: x;
-    padding: 133px 10px;
+            padding: 6vh 10px;
+
     }
     .headings{
         font-family: "Poppins", sans-serif;
@@ -103,7 +106,82 @@
     .Footer nav ul li:hover{
         text-decoration: underline white;
     }
+    .signIn{
+        /* border: 2px solid yellow; */
+    width: 53vw;
+    background-color: #1b1f29;
+    text-align: justify;
+    /* max-width: fit-content; */
+    margin-left: auto;
+    height: 49vh;
+    margin-right: auto;
+        
+    }
+    .signIn form{
+        text-align: center;
+    }
+    .FormText{
+        font-family: "Poppins", sans-serif;
+    font-weight: 200;
+    font-size: 11px;
+    font-style: normal;
+    color: white;
+    }
+    .InputFields{
+        padding: 11px 26px;
+    margin: 6px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    color: white;
+    font-size: 16px;
+    border-radius: 0px 28px;
+    border: none;
+    transition: all 0.3s ease;
+    background-color: #242934;  
+    cursor: pointer;
+        
+    }
+    
+    #SignInBtn{
+        padding: 11px 26px;
+        font-family: "Poppins", sans-serif;
+    font-weight: 100;
+    background-color: #FF3EA5;
+    border: none;
+    border-radius: 0px 28px;
+    margin: 7px;
+    font-size: 19px;
+    font-weight: 450;
+   transition: all 0.3s ease;
+    color: white;
+    }
+    #SignInBtn:hover{
+        cursor: pointer;
+        background-color: white;
+        color: #FF3EA5;
 
+    }
+    #CreateNowBtn{
+        font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    color: white;
+    border: none;
+    background: transparent;
+    }
+    #CreateNowBtn:hover{
+        cursor: pointer;
+        text-decoration: underline;
+    }
+    .sizeIncrease{
+        width: 55vh;
+    height: 7vh;
+    }
+    .pClass{
+        font-size: 17px;
+    }
+    .signIn form a{
+        padding: 0px 7px;
+    }
 </style>
 <body>
     <div class="onTop">        
@@ -121,8 +199,18 @@
 </div>
 
 <div class="Main">
-    <h1 class="headings">Build Future with us</h1>
-    <h4 class="headings">Safe and secure</h4>
+    <!-- <h1 class="headings">Build Future with us</h1>
+    <h4 class="headings">Safe and secure</h4> -->
+    <h1 class="headings">Log In</h1>
+    <div class="signIn">
+        <form action="/" method="GET">
+            <input type="text" name="takeUsername" id="takeUsername" class="InputFields sizeIncrease" placeholder="Username"><br>
+            <input type="password" name="takePass" id="takePass" class="InputFields sizeIncrease" placeholder="Password"><br>
+            <button  id="SignInBtn" class="sizeIncrease" onclick="check()">Sign In</button>
+            <p class="FormText pClass">Not a member?<a class="FormText pClass" id="CreateNowBtn" href="/createAcc.html">Sign up now</a></p>
+            
+        </form>
+    </div>
 </div>
 
 <footer>
@@ -145,5 +233,26 @@
 
     </div>
 </footer>
+
+
+
+<script>
+    const username = document.getElementById("takeUsername");
+    const pass = document.getElementById("takePass");
+    
+    function check(){
+        user = username.value;
+        passCode = pass.value;
+
+        fetch(`/api/checkP?takeUsername=${user}&takePass=${passCode}`)
+            .then(response =>response.json())
+            .then(data =>{
+                console.log(data);
+        });
+    }
+</script>
+
+
+
 </body>
 </html>
