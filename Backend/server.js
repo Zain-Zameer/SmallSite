@@ -2,6 +2,7 @@ const  express =require('express');
 const  path =require('path');
 const app = express();
 
+
 const sql= require("mssql/msnodesqlv8");
 var config = {
     server :"DESKTOP-IRSO487\\SQLEXPRESS",
@@ -26,14 +27,16 @@ app.use(bodyParser.urlencoded({ extended:true}));
 
 
 
-app.use(express.static(path.join(__dirname, '../public')));
+app.use(express.static(path.join(__dirname, '../Frontend')));
+
+
 // let DataBaseRecords = [];
 // sql.connect(config,function(err){
-//     if(err)console.log(err);
-//     var request = new sql.Request();
-//     request.query("select History from personal.history",function(err,records){
-//         if(err)console.log(err);
-//         else{
+    //     if(err)console.log(err);
+    //     var request = new sql.Request();
+    //     request.query("select History from personal.history",function(err,records){
+        //         if(err)console.log(err);
+        //         else{
 //             records.recordset.forEach(function(record){
 //                 DataBaseRecords.push(record.History);
 //             })
@@ -98,12 +101,12 @@ app.get('/api/checkP',function(req,res){
                     
                     if(data===encryptedPass){
                         console.log(data + " " + encryptedPass);
-
-                        console.log("Success.");
+                        res.sendFile(path.join(__dirname,'../','Frontend','homePage.html'));
+                        console.log("Success");
                     }
                     else{
-                        console.log(data + " " + encryptedPass);
-                        console.log("Failed.");
+                        res.send("Failed");
+                        console.log("Failed");
                     }
                 
             });
@@ -154,17 +157,21 @@ app.get('/api/history',(req,res)=>{
 
 
 
-app.get('/public/Search.html',(req,res)=>{
-    res.sendFile(path.join(__dirname,'../','public','Search.html'));
+app.get('Search.html',(req,res)=>{
+    res.sendFile(path.join(__dirname,'../','Frontend','Search.html'));
 });
-app.get('/public/Weather.html',(req,res)=>{
-    res.sendFile(path.join(__dirname,'../','public','Weather.html'));
+app.get('Weather.html',(req,res)=>{
+    res.sendFile(path.join(__dirname,'../','Frontend','Weather.html'));
 });
-app.get('/public/index.html',(req,res)=>{
-    res.sendFile(path.join(__dirname,'../','public','index.html'));
+// app.get('index.html',(req,res)=>{
+//     res.sendFile(path.join(__dirname,'../','public','index.html'));
+// });
+
+app.get('homePage.html',(req,res)=>{
+    res.sendFile(path.join(__dirname,'../','Frontend','homePage.html'));
 });
 app.get('/',(req,res)=>{
-    res.sendFile(path.join(__dirname,'../','public','index.html'));
+    res.sendFile(path.join(__dirname,'../','Frontend','Login.html'));
 });
 app.listen(8080,()=>{
     console.log("Server is listening on port 8080");

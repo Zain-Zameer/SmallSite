@@ -182,17 +182,25 @@
     .signIn form a{
         padding: 0px 7px;
     }
+    #log{
+        font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    color: white;
+    font-size: 17px;
+    background-color: rgb(228, 43, 43);
+    display: inline-block;
+    }
 </style>
 <body>
     <div class="onTop">        
     <div class="Header">
-        <img src="/microsoft.png" alt="Image of microsoft" id="microsoft">
+        <img src="./Icons/microsoft.png" alt="Image of microsoft" id="microsoft">
         <h3>Microsoft Zen Zen</h3>
         <nav>
             <ul>
-                <li><a href="#">Home</a><img src="/home.png" alt="" class="iconsNav"></li>  
-                <li><a href="../public/Search.html">Find</a><img src="/search.png" alt="" class="iconsNav"></li>
-                <li><a href="../public/Weather.html">Weather Updates</a><img src="/cloudy.png" alt="" class="iconsNav"></li>
+                <li><a href="#">Home</a><img src="./Icons/home.png" alt="" class="iconsNav"></li>  
+                <li><a href="#">Find</a><img src="./Icons/search.png" alt="" class="iconsNav"></li>
+                <li><a href="#">Weather Updates</a><img src="./Icons/cloudy.png" alt="" class="iconsNav"></li>
             </ul>
         </nav>
     </div>
@@ -203,10 +211,11 @@
     <h4 class="headings">Safe and secure</h4> -->
     <h1 class="headings">Log In</h1>
     <div class="signIn">
-        <form action="/" method="GET">
+        <form action="/" method="GET" onsubmit="check()">
             <input type="text" name="takeUsername" id="takeUsername" class="InputFields sizeIncrease" placeholder="Username"><br>
             <input type="password" name="takePass" id="takePass" class="InputFields sizeIncrease" placeholder="Password"><br>
-            <button  id="SignInBtn" class="sizeIncrease" onclick="check()">Sign In</button>
+            <p id="log"></p><br>
+            <button  id="SignInBtn" class="sizeIncrease">Sign In</button>
             <p class="FormText pClass">Not a member?<a class="FormText pClass" id="CreateNowBtn" href="/createAcc.html">Sign up now</a></p>
             
         </form>
@@ -239,15 +248,25 @@
 <script>
     const username = document.getElementById("takeUsername");
     const pass = document.getElementById("takePass");
-    
+    const log = document.getElementById("log");
+    const paragraph = document.createElement('p');
+    // window.log = log;
     function check(){
         user = username.value;
         passCode = pass.value;
-
         fetch(`/api/checkP?takeUsername=${user}&takePass=${passCode}`)
-            .then(response =>response.json())
-            .then(data =>{
-                console.log(data);
+            .then(response =>{
+                if (response.ok) {
+            return response.blob(); // Assuming backend returns a file
+        } else {
+            throw new Error('Network response was not ok.');
+        }
+            })
+            .then(blob =>{
+                const fileURL = URL.createObjectURL(blob);
+        
+        // Open the file in a new tab or window
+        window.open(fileURL, '/Frontend/homePage.html');
         });
     }
 </script>
